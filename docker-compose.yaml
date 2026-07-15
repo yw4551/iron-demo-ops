@@ -1,0 +1,17 @@
+services:
+    mysql:
+        image: mysql:8
+        container_name: iron_demo_db
+
+        ports:
+            - "3306:3306"
+
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=iron_demo
+
+        volumes:
+            - "mysql-data:/var/lib/mysql"
+
+volumes:
+    mysql-data:
