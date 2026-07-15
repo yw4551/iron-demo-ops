@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS iron_demo;
 
 USE iron_demo;
 
-CREATE TABLE IF NOT EXISTS operations (
+CREATE TABLE IF NOT EXISTS operators (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
     `rank` VARCHAR(100)
@@ -13,10 +13,10 @@ CREATE TABLE IF NOT EXISTS incidents (
     code_name VARCHAR(100),
     threat_level VARCHAR(50),
     status VARCHAR(50),
-    operation_id INT,
+    operator_id INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (operation_id)
-    REFERENCES operations(id)
+    FOREIGN KEY (operator_id)
+    REFERENCES operators(id)
 );
 
 CREATE TABLE IF NOT EXISTS logs (
@@ -29,5 +29,5 @@ CREATE TABLE IF NOT EXISTS logs (
     FOREIGN KEY (incident_id)
     REFERENCES incidents(id),
     FOREIGN KEY (operator_id)
-    REFERENCES operations(id)
+    REFERENCES operators(id)
 );
